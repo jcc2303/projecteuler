@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="pe-id1" attributes="">
+  <template>
+    <h1>id: {{peid}}</h1>
+    <p>{{description}}</p>
+    <code>{{result}}</code>
+    <content></content>
+    <a href="https://projecteuler.net/problem=1" >link</a>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        //id : '1', 
+        peid : 1, 
+        description : 'If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.',
+        ready: function() {
+          this.result = 0;
+          this.calc();
+        },
+        calc: function(){
+          var sumMultiples = 0;
+          for(var i=0; i<1000; i++){
+            if (i%3 == 0 | i%5 == 0 ) {
+              sumMultiples = sumMultiples+i;
+            }
+          }
+          this.result = sumMultiples;
+          
+        }
+        // define element prototype here
+      });
+
+    })();
+  </script>
+</polymer-element>
